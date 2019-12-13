@@ -43,7 +43,7 @@ class RestApi {
         return Promise.reject(error)
       }
       let data = error.response.data || {}
-      let message = data.failed
+      let message = data.message
       Notify.create({
         color: 'red-5',
         textColor: 'white',
@@ -55,8 +55,11 @@ class RestApi {
     })
   }
 
-  async validateUser (params) {
-    return this.instance.post('/validateUser', params)
+  async getMyProfile (params) {
+    return this.instance.get('/my-profile', params)
+  }
+  async updateUserInfo (params) {
+    return this.instance.post('/update-profile', params)
   }
 
   async sendVerifyEmail (params) {
@@ -68,15 +71,27 @@ class RestApi {
   async uploadUserAvatar (params, headers) {
     return this.instance.post('/uploadUserAvatar', params, headers)
   }
-  async getQuestionList (params) {
-    return this.instance.get('/getQuestions', params)
+  async getBuyers (params) {
+    return this.instance.post('/get-buyers', params)
+  }
+  async getBuyerInfo (id) {
+    return this.instance.get('/get-buyer-by-id?buyerID=' + id)
+  }
+  async createBuyer (params) {
+    return this.instance.post('/create-buyer', params)
+  }
+  async updateBuyer (params) {
+    return this.instance.post('/update-buyer', params)
+  }
+  async removeBuyer (params) {
+    return this.instance.post('/remove-buyer', params)
   }
   async registerUser (params) {
     return this.instance.post('/registerUser', params)
   }
   async login (params) {
     let response = await this.instance.post('/loginUser', params)
-    this.token = response.data[0].token
+    this.token = response.data.token
     return response
   }
   async forgotPassword (params) {

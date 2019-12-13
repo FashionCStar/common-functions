@@ -148,23 +148,11 @@ export default {
   },
   methods: {
     createNew () {
-      this.$router.push({ name: 'NewBuyer' })
+      this.$router.push({ name: 'NewSeller' })
     },
     goToDetail (id) {
-      if (id) {
-        this.dialogTitle = 'Buyer Detail'
-        this.selectedBuyer.id = id
-        this.getBuyerInfo(id)
-      } else {
-        this.dialogTitle = 'Create New Buyer'
-        this.selectedBuyer = {
-          name: '',
-          sex: '',
-          age: ''
-        }
-      }
-      // this.$router.push({ name: 'BuyerDetail', params: { id: id } })
-      this.showDetail = true
+      this.$router.push({ name: 'SellerDetail', params: { id: id } })
+      // this.showDetail = true
     },
     getBuyerList: async function (props) {
       let { page, rowsPerPage, rowsNumber, sortBy, descending } = props.pagination
@@ -227,6 +215,7 @@ export default {
       this.selectedBuyer = {}
     },
     async onSubmit () {
+      console.log(this.selectedBuyer)
       const params = {
         data: this.selectedBuyer
       }

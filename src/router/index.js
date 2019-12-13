@@ -1,9 +1,9 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import { Notify } from 'quasar'
+// import { Notify } from 'quasar'
 
 import routes from './routes'
-
+import { Notify } from 'quasar'
 Vue.use(VueRouter)
 
 /*
@@ -30,7 +30,7 @@ export default function ({ store }) {
     // console.log('to =>', to, 'from =>', from)
     if (to.matched.some(record => record.meta.needAuth)) {
       // if not athenticated
-      if (!store.getters['commons/getField']('token')) {
+      if (!store.getters['auth/token']) {
         notif()
         notif = Notify.create({
           color: 'negative',
@@ -38,7 +38,7 @@ export default function ({ store }) {
           message: 'You need to login.'
         })
         // route to start page
-        next('/')
+        next('/login')
       } else {
         // else continue routing
         // update route meta

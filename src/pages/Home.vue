@@ -524,8 +524,8 @@
 </style>
 
 <script>
-import { Loading } from 'quasar'
-import { api } from 'src/boot/api'
+// import { Loading } from 'quasar'
+// import { api } from 'src/boot/api'
 export default {
   name: 'PageIndex',
   data () {
@@ -578,18 +578,18 @@ export default {
     //     this.loading = false
     //   }, 700)
     // }
-    async login () {
-      Loading.show()
-      try {
-        let res = await api.login(this.userData)
-        console.log('res', res.data[0])
-        await this.$store.dispatch('auth/login', { token: res.data.token, user: res.data.user })
-        Loading.hide()
-        this.$router.push('/axios-node-test')
-      } catch (error) {
-        Loading.hide()
-      }
-    },
+    // async login () {
+    //   Loading.show()
+    //   try {
+    //     let res = await api.login(this.userData)
+    //     console.log('res', res.data[0])
+    //     await this.$store.dispatch('auth/login', { token: res.data.token, user: res.data.user })
+    //     Loading.hide()
+    //     this.$router.push('/axios-node-test')
+    //   } catch (error) {
+    //     Loading.hide()
+    //   }
+    // },
     socialNavigate (link) {
       window.open(link)
     },

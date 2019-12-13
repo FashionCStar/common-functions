@@ -103,7 +103,7 @@
   }
 </style>
 <script>
-import { Loading } from 'quasar'
+import { Loading, LocalStorage } from 'quasar'
 import { api } from 'src/boot/api'
 export default {
   name: 'Login',
@@ -119,7 +119,7 @@ export default {
     }
   },
   created () {
-    console.log('current Route', this.$router.currentRoute)
+    // console.log('current Route', this.$router.currentRoute)
   },
   methods: {
     async login () {
@@ -134,8 +134,13 @@ export default {
           position: 'top',
           message: 'User is logged in successfully'
         })
+        LocalStorage.set('token', res.data.token)
+        LocalStorage.set('user', res.data.user)
+        this.$store.commit('auth/token', res.data.token)
+        this.$store.commit('auth/user', res.data.user)
         this.$router.push('/dashboard')
       } catch (error) {
+        console.log('error', error)
         Loading.hide()
       }
     }

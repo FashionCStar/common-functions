@@ -3,50 +3,26 @@
     <q-item-label header>Menu</q-item-label>
     <q-item
       clickable
-      to="/dashboard/scheduling"
+      to="/dashboard/buyers"
     >
       <q-item-section avatar>
-        <q-icon name="fas fa-calendar-alt" />
+        <q-icon name="fas fa-user-alt" />
       </q-item-section>
       <q-item-section>
-        <q-item-label>Scheduling</q-item-label>
+        <q-item-label>Buyers</q-item-label>
         <!--<q-item-label caption>QSelect Extension</q-item-label>-->
       </q-item-section>
     </q-item>
     <q-item
       clickable
-      to="/dashboard/component-samples"
+      to="/dashboard/buyers1"
     >
       <q-item-section avatar>
         <q-icon name="school" />
       </q-item-section>
       <q-item-section>
-        <q-item-label>Select Sample</q-item-label>
+        <q-item-label>Buyers2</q-item-label>
         <q-item-label caption>QSelect Extension</q-item-label>
-      </q-item-section>
-    </q-item>
-    <q-item
-      clickable
-      to="/dashboard/form-validations"
-    >
-      <q-item-section avatar>
-        <q-icon name="chat" />
-      </q-item-section>
-      <q-item-section>
-        <q-item-label>Form Input Samples</q-item-label>
-        <q-item-label caption>Quasar Form Input Extension with Vuelidate</q-item-label>
-      </q-item-section>
-    </q-item>
-    <q-item
-      clickable
-      to="/dashboard/dialog-sample"
-    >
-      <q-item-section avatar>
-        <q-icon name="record_voice_over" />
-      </q-item-section>
-      <q-item-section>
-        <q-item-label>Dialog Sample</q-item-label>
-        <q-item-label caption>Dialog Sample</q-item-label>
       </q-item-section>
     </q-item>
   </div>
