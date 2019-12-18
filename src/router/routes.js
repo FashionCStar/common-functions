@@ -1,6 +1,6 @@
 // TODO:: separate route definitions by modules and just import here
 // import routeModules from 'features/routes-index.js'
-
+// import store from 'src/store'
 // function authGuard (to, from, next) {
 //   // console.log('to', store.getters['auth/token'])
 //   // next()
